@@ -39,8 +39,8 @@ class Auth {
       res.cookie("token", token, {
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 12,
-        secure: false,
-        sameSite: "lax",
+        secure: true,
+        sameSite: "None",
       });
 
       return res
@@ -71,8 +71,8 @@ class Auth {
       res.cookie("token", token, {
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 12,
-        secure: false,
-        sameSite: "lax",
+        secure: true,
+        sameSite: "None",
       });
 
       return res
@@ -91,8 +91,8 @@ class Auth {
 
       res.clearCookie("token", {
         httpOnly: true,
-        sameSite: "lax",
-        secure: false,
+        sameSite: "None",
+        secure: true,
       });
 
       return res.status(200).json({ message: "Logout successfully" });
