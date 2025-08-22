@@ -4,6 +4,7 @@ import cors from "cors";
 
 import routes from "./routes/index.routes.js";
 import { verifyToken } from "./middlewares/verifyToken.js";
+import db from "./config/Database.js";
 
 const corsOption = {
   origin: "https://jlabs-developer-internship-assessment-web.vercel.app",
@@ -30,6 +31,16 @@ app.get("/", (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+
+const startServer = () => {
+  try {
+    db.startdb();
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+startServer();
