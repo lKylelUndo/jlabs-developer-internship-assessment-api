@@ -6,7 +6,7 @@ import routes from "./routes/index.routes.js";
 import { verifyToken } from "./middlewares/verifyToken.js";
 
 const corsOption = {
-  origin: "http://localhost:5173",
+  origin: "https://jlabs-developer-internship-assessment-web.vercel.app",
   credentials: true,
 };
 
@@ -33,4 +33,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-
